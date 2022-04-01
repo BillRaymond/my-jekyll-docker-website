@@ -5,6 +5,26 @@ There are so many variables in getting it right, that many poeple give up in fru
 (This repo accompanies a YouTube video I created that teaches you how to develop with Jekyll or GitHub Pages)
 
 
+- [How to use Develop Jekyll (and GitHub Pages) locally using Docker containers](#how-to-use-develop-jekyll-and-github-pages-locally-using-docker-containers)
+  - [Benefits of using Docker with Visual Studio Code remote containers](#benefits-of-using-docker-with-visual-studio-code-remote-containers)
+  - [Prepare your desktop](#prepare-your-desktop)
+  - [Reference links](#reference-links)
+  - [To create a new GitHub Pages website from scratch](#to-create-a-new-github-pages-website-from-scratch)
+    - [STEP 1: Create a GitHub Pages repo](#step-1-create-a-github-pages-repo)
+    - [STEP 2: Enable GitHub Pages](#step-2-enable-github-pages)
+    - [STEP 3: Install Visual Studio Code extensions](#step-3-install-visual-studio-code-extensions)
+    - [STEP 4: Clone the GitHub repo to your local computer](#step-4-clone-the-github-repo-to-your-local-computer)
+    - [STEP 5: Determine Jekyll dependencies](#step-5-determine-jekyll-dependencies)
+    - [STEP 6: Determine your docker image](#step-6-determine-your-docker-image)
+    - [STEP 6: Create a dockerfile and a Docker container](#step-6-create-a-dockerfile-and-a-docker-container)
+    - [STEP 7: Build the Jekyll website](#step-7-build-the-jekyll-website)
+    - [STEP 8: Run the Jekyll website](#step-8-run-the-jekyll-website)
+  - [Closing the container](#closing-the-container)
+  - [Opening the container](#opening-the-container)
+  - [FAQs](#faqs)
+    - [Q: What if I delete the container?](#q-what-if-i-delete-the-container)
+    - [Q: What if I clone this or some other repo to my computer?](#q-what-if-i-clone-this-or-some-other-repo-to-my-computer)
+
 ## Benefits of using Docker with Visual Studio Code remote containers
 * Your code lives on your computer, but the website you are testing is built inside a container
 * You can test your work locally using any browser on your computer
@@ -229,4 +249,6 @@ bundle update
 
 ### Q: What if I clone this or some other repo to my computer?
 Not a problem. Clone the code to your local computer, then follow the same steps I share in the FAQ titled **What if I delete the container**
+
+**Important**: You will have to modify the `_config.yml` file and update it with your new `baseurl` and `url`, as mentioned in `STEP 9` earlier in this README
 
