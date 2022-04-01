@@ -1,4 +1,4 @@
-# How to use Jekyll (and GitHub Pages) using Docker containers
+# How to use Develop Jekyll (and GitHub Pages) locally using Docker containers
 If you want to create a simple website using Jekyll or GitHub Pages, the typical route you take is to install Ruby and Jekyll on your computer.
 There are so many variables in getting it right, that many poeple give up in frustration. Using a Docker container is such an easier way to go.
 

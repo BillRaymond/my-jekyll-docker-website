@@ -5,6 +5,7 @@
 layout: home
 ---
 
+## Hey there!
 Are you accessing this site because you watched my YouTube video?
 
-Check out the [README](README.md) file to learn how to develop with Jekyll and or GitHub Pages on your local computer using Docker containers.
+Check out the [README](https://github.com/BillRaymond/my-jekyll-docker-website#readme) file to learn how to develop with Jekyll and or GitHub Pages on your local computer using Docker containers.
