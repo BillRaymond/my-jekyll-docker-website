@@ -180,7 +180,15 @@ RUN gem update bundler && gem install bundler jekyll
 1. In Visual Studio Code, open the terminal window and type the following commands:
 ```
 bundle init
+
+# For GitHub Pages support
 bundle add jekyll --version “~>3.9.0”
+
+#For the latest version of Jekyll 4.x
+bundle add jekyll --version "~>4"
+
+bundle install
+bundle update
 bundle exec jekyll new --force --skip-bundle .
 bundle add webrick
 bundle install
