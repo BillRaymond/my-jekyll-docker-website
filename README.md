@@ -181,11 +181,13 @@ RUN gem update bundler && gem install bundler jekyll
 ```
 bundle init
 
-# For GitHub Pages support, ise Jekyll 3.9.x
+# --- Decision time!
+# Either install Jekyll 3.9.x for for official GitHub Pages support
 bundle add jekyll --version “~>3.9.0”
 
-# For the latest version of Jekyll 4.x
+# Or install the latest version of Jekyll 4.x
 bundle add jekyll --version "~>4"
+# ---
 
 bundle install
 bundle update
