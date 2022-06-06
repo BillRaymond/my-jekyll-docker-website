@@ -81,7 +81,6 @@ If you ever have questions about using Jekyll or finding out dependencies, I pro
 | :---   | :---    |
 | **Name**  | my-jekyll-docker-website _(or whatever you would like to name it)_ |
 | **Description**  | Testing Jekyll development using Docker |
-| **Visibility** | |
 | **Add a README file** | Yes |
 | **Add a .gitignore file** | Yes. Also, select the Jekyll template |
 
