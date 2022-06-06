@@ -146,9 +146,9 @@ I recommend you start with a small and portable Ruby image based on Alpine. If y
 # Create a Jekyll container from a Ruby Alpine image
 
 # At a minimum, use Ruby 2.5 or later
-# Uncomment this line if you want to use GitHub Pages (Jekyll 3.9.x):
+# Uncomment the following line if you want to use GitHub Pages (Jekyll 3.9.x):
 # FROM ruby:2.7-alpine3.15
-# Uncomment this line if you want to use the latest version of Jekyll:
+# Uncomment the following line if you want to use the latest version of Jekyll:
 # FROM ruby:3.0.3-alpine3.15
 
 # Add Jekyll dependencies to Alpine
