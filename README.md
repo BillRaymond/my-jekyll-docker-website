@@ -111,7 +111,7 @@ If you ever have questions about using Jekyll or finding out dependencies, I pro
 ### STEP 5: Determine Jekyll dependencies
 **Option 1 (latest version of Jekyll)**: If you want to use Jekyll and do not care about GitHub Pages, go to the [Jekyll Docs website](https://jekyllrb.com/docs) and find the minimum version of Ruby. The latest version of Jekyll is always on the top-right corner of the site. Here are my recommended settings for the latest version of Jekyll:
 
-| option | Setting |
+| Option | Setting |
 | :---   | :---    |
 | **Jekyll 4.x.x**  | Ruby 3.0.3 (maybe greater) |
 | **Note**  | Use this option if you plan to build your site with a third-party host or use GitHub Actions to build your site |
