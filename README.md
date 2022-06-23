@@ -19,6 +19,8 @@ This repo supports my [YouTube video](https://youtu.be/owHfKAbJ6_M) that shows h
     - [STEP 6: Create a dockerfile and a Docker container](#step-6-create-a-dockerfile-and-a-docker-container)
     - [STEP 7: Build the Jekyll website](#step-7-build-the-jekyll-website)
     - [STEP 8: Run the Jekyll website](#step-8-run-the-jekyll-website)
+    - [STEP 9: Prepare your code for GitHub Pages](#step-9-prepare-your-code-for-github-pages)
+    - [STEP 10: Update the .gitignore file (optional)](#step-10-update-the-gitignore-file-optional)
   - [Closing the container](#closing-the-container)
   - [Opening the container](#opening-the-container)
   - [FAQs](#faqs)
@@ -175,20 +177,6 @@ RUN gem update bundler && gem install bundler jekyll
 8. VSC will build the container. This may take a long time for the first time
 9. Optionally, you can update the `devcontainer.json` file, but I do not cover those instructions here. To learn more, go to the [Remote container docs](https://code.visualstudio.com/docs/remote/containers) website 
 
-### STEP 7: Update the .gitignore file (optional)
-I did not cover this in the original video, but you may want to update your `.gitignore` file with more options.
-1. In Visual Studio Code, select the current `.gitignore` file and paste in the following code:
-Note: 
-```
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-**/.DS_Store
-.bundle/
-vendor/
-```
-
 ### STEP 7: Build the Jekyll website
 1. In Visual Studio Code, open the terminal window and type the following commands:
 ```
@@ -220,7 +208,7 @@ bundle exec jekyll serve --livereload
 2. Select the `Open in Browser` option and verify the site is running (note: Visual Studio Code has a built-in browser and it may or may not work, so use your desktop browser for best results)
 3. After you verify Jekyll is running, go to the terminal in Visual Studio Code and type `CONTROL+C` to stop Jekyll
 
-STEP 9: Prepare your code for GitHub Pages
+### STEP 9: Prepare your code for GitHub Pages
 
 **Note**: Even if you are not using GitHub Pages, you still need to set the `url` and `baseurl`. I only cover how to do that for GitHub Pages here
 
@@ -242,7 +230,23 @@ Notice that I removed the trailing `/` at the end of the original url as that is
 7. Go back to your GitHub Pages repo and refresh the page to make sure the files on your desktop now exist on GitHub
 8. After 30 seconds to 5 minutes, go to the GitHub Pages website url and verify the new Jekyll website is running
 
-Technically, you are done now. However, I will share you some additional steps to learn how to work with the container
+### STEP 10: Update the .gitignore file (optional)
+I did not cover this in the original video, but you may want to update your `.gitignore` file with more options.
+
+**Note**: You probably have some of these entries already. Also, the `.DS_Store` option is for macOS, but it will not matter if you include it or not on another OS.
+
+1. In Visual Studio Code, select the current `.gitignore` file and paste in the following code:
+```
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+**/.DS_Store
+.bundle/
+vendor/
+```
+
+Technically, you are done now. However, I will share you some additional steps to learn how to work with the container.
 
 ## Closing the container
 It is a good practice to close the container when you are done coding as it will free up memomry and resources on your base operating system. You can do that directly inside Visual Studio Code. 
