@@ -175,6 +175,20 @@ RUN gem update bundler && gem install bundler jekyll
 8. VSC will build the container. This may take a long time for the first time
 9. Optionally, you can update the `devcontainer.json` file, but I do not cover those instructions here. To learn more, go to the [Remote container docs](https://code.visualstudio.com/docs/remote/containers) website 
 
+### STEP 7: Update the .gitignore file (optional)
+I did not cover this in the original video, but you may want to update your `.gitignore` file with more options.
+1. In Visual Studio Code, select the current `.gitignore` file and paste in the following code:
+Note: 
+```
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+**/.DS_Store
+.bundle/
+vendor/
+```
+
 ### STEP 7: Build the Jekyll website
 1. In Visual Studio Code, open the terminal window and type the following commands:
 ```
