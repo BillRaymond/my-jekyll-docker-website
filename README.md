@@ -177,7 +177,7 @@ bundle init
 
 # --- Decision time!
 # Either install Jekyll 3.9.x for for official GitHub Pages support
-bundle add jekyll --version “~>3.9.0”
+bundle add jekyll --version "~>3.9.0"
 
 # Or install the latest version of Jekyll 4.x
 bundle add jekyll --version "~>4"
