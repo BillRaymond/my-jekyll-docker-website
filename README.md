@@ -26,6 +26,7 @@ This repo supports my [YouTube video](https://youtu.be/owHfKAbJ6_M) that shows h
   - [FAQs](#faqs)
     - [Q: What if I delete the container?](#q-what-if-i-delete-the-container)
     - [Q: What if I clone this or some other repo to my computer?](#q-what-if-i-clone-this-or-some-other-repo-to-my-computer)
+    - [Q: What if I want to automate the execution of commands once a container is created?](#q-what-if-i-want-to-automate-the-execution-of-commands-once-a-container-is-created)
 
 ## Benefits of using Docker with Visual Studio Code remote containers
 * Your code lives on your computer, but the website you are testing is built inside a container
@@ -272,3 +273,73 @@ Not a problem. Clone the code to your local computer, then follow the same steps
 
 **Important**: You will have to modify the `_config.yml` file and update it with your new `baseurl` and `url`, as mentioned in `STEP 9` earlier in this README
 
+### Q: What if I want to automate the execution of commands once a container is created?
+A: So as mentioned in the FAQ titled **What if I delete the container**, the `bundle install` and `bundle update` commands need to be run each time after the container has been created. But what if we would like to automate this step? Well lucky for us, there is a way!
+
+We just need to make use of the `onCreateCommand` command property.  
+If we open up the `.devcontainer\devcontainer.json` file, it should look like this:  
+
+```
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/docker-existing-dockerfile
+{
+	"name": "Existing Dockerfile",
+	// Sets the run context to one level up instead of the .devcontainer folder.
+	"context": "..",
+
+	// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
+	"dockerFile": "../dockerfile"
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Uncomment the next line to run commands after the container is created - for example installing curl.
+	// "postCreateCommand": "apt-get update && apt-get install -y curl",
+
+	// Uncomment when using a ptrace-based debugger like C++, Go, and Rust
+	// "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
+	// Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
+	// "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
+	// Uncomment to connect as a non-root user if you've added one. See https://aka.ms/vscode-remote/containers/non-root.
+	// "remoteUser": "vscode"
+}
+```
+
+We need to do the following:
+1. Uncomment `// "postCreateCommand": "apt-get update && apt-get install -y curl",` and remove the comma `,` at the end.
+2. Replace `"apt-get update && apt-get install -y curl"` with `"bundle install && bundle update"` (we use the `&&` to be able to chain multiple commands together).
+3. Add a comma `,` to the end of `"dockerFile": "../dockerfile"`.  
+
+So the file should look like this:
+```
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/docker-existing-dockerfile
+{
+	"name": "Existing Dockerfile",
+
+	// Sets the run context to one level up instead of the .devcontainer folder.
+	"context": "..",
+
+	// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
+	"dockerFile": "../dockerfile",
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Uncomment the next line to run commands after the container is created - for example installing curl.
+	"postCreateCommand": "bundle install && bundle update"
+
+	// Uncomment when using a ptrace-based debugger like C++, Go, and Rust
+	// "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
+
+	// Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
+	// "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
+
+	// Uncomment to connect as a non-root user if you've added one. See https://aka.ms/vscode-remote/containers/non-root.
+	// "remoteUser": "vscode"
+}
+```
+
+Now save the file, and try deleting and recreating the container, after the container has been created it should automatically start running the commands we just added. They should be visible within the terminal.  
+
+More information about this and other command properties can be found [here](https://containers.dev/implementors/json_reference/#lifecycle-scripts).
